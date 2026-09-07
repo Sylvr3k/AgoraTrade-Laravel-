@@ -837,17 +837,19 @@
 
         <div class="product-grid">
             @forelse($listings ?? [] as $listing)
-            <div class="product-card">
-                <div class="product-image-dynamic" @if($listing->image) style="background-image: url('{{ Storage::url($listing->image) }}');" @endif>
-                    @unless($listing->image) 📦 @endunless
+                <div class="product-card">
+                    <div class="product-image-dynamic" @if($listing->image)
+                    style="background-image: url('{{ Storage::url($listing->image) }}');" @endif>
+                        @unless($listing->image) 📦 @endunless
+                    </div>
+                    <div class="product-backtext">
+                        <h3>{{ $listing->title }}</h3>
+                        <p class="price">KES {{ number_format($listing->price, 2) }}</p>
+                    </div>
                 </div>
-                <div class="product-backtext">
-                    <h3>{{ $listing->title }}</h3>
-                    <p class="price">KES {{ number_format($listing->price, 2) }}</p>
-                </div>
-            </div>
             @empty
-            <p class="no-listings">No listings yet — be the first to <a href="{{ Auth::check() ? '/listings/create' : route('auth.redirect') }}">list an item</a>.</p>
+                <p class="no-listings">No listings yet — be the first to <a
+                        href="{{ Auth::check() ? '/listings/create' : route('auth.redirect') }}">list an item</a>.</p>
             @endforelse
         </div>
     </div>

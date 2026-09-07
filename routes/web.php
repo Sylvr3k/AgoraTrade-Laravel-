@@ -53,7 +53,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::get('/profile', [AuthController::class, 'edit'])->middleware('auth')->name('profile.edit');
 Route::put('/profile', [AuthController::class, 'update'])->name('profile.update');
 
-Route::get('/auth-redirect', function() {
+Route::get('/auth-redirect', function () {
     return redirect()->route('login')->with('redirect', url()->previous());
 })->name('auth.redirect');
 
