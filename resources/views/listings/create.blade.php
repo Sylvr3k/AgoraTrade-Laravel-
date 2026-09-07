@@ -478,7 +478,7 @@
     {{-- ── SIDEBAR ── --}}
     <aside class="sidebar">
         <div class="sidebar-brand">
-            <img src="{{ asset('letter-a-block.png') }}" alt="Logo">
+            <a href="{{ url('/') }}"><img src="{{ asset('letter-a-block.png') }}" alt="Logo"></a>
             <div class="sidebar-brand-text"><span>Agora</span>Trade</div>
         </div>
         <div class="sidebar-user">

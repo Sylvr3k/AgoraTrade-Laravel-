@@ -681,7 +681,7 @@
 
 <body>
     <nav>
-        <img src="{{ asset('letter-a-block.png') }}" alt="Logo">
+        <a href="{{ url('/') }}"><img src="{{ asset('letter-a-block.png') }}" alt="Logo"></a>
         <form class="nav-search" action="{{ url('/store') }}" method="GET">
             <input type="text" name="search" value="{{ request('search') }}" placeholder="Search listings...">
             <select name="category">
