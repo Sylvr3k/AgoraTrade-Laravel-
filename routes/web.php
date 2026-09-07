@@ -64,7 +64,7 @@ Route::get('/signup', function () {
     return view('signup');
 })->name('signup.form');
 
-Route::get('/store', [StoreController::class, 'index'])->middleware('auth')->name('store');
+Route::get('/store', [StoreController::class, 'index'])->name('store');
 Route::post('/orders', [StoreController::class, 'buy'])->middleware('auth')->name('orders.buy');
 
 Route::post('/signup', [AuthController::class, 'store'])->name('signup.store');
