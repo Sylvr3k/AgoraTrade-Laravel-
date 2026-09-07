@@ -937,12 +937,12 @@
                         </div>
                         @if(Auth::check() && Auth::id() !== $listing->user_id)
                             <button class="buy-btn" onclick="openBuyModal(
-                                {{ $listing->id }},
-                                '{{ addslashes($listing->title) }}',
-                                '{{ number_format($listing->price, 2) }}',
-                                '{{ $listing->user->username }}',
-                                '{{ $listing->image ? Storage::url($listing->image) : '' }}'
-                            )">Buy Now</button>
+                                        {{ $listing->id }},
+                                        '{{ addslashes($listing->title) }}',
+                                        '{{ number_format($listing->price, 2) }}',
+                                        '{{ $listing->user->username }}',
+                                        '{{ $listing->image ? Storage::url($listing->image) : '' }}'
+                                    )">Buy Now</button>
                         @elseif(Auth::check() && Auth::id() === $listing->user_id)
                             <button class="buy-btn sold" disabled>Your Listing</button>
                         @else

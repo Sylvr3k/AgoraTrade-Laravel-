@@ -26,7 +26,13 @@ Route::post('/listings', [ListingController::class, 'store'])->middleware('auth'
 Route::delete('/listings/{id}', [ListingController::class, 'destroy'])->middleware('auth')->name('listings.destroy');
 
 Route::get('/', function () {
-    return view('welcome');
+    $listings = \App\Models\Listing::where('status', 'active')
+        ->with('user')
+        ->latest()
+        ->take(4)
+        ->get();
+
+    return view('welcome', compact('listings'));
 })->name('welcome');;
 
 // Named route for login page

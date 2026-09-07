@@ -536,6 +536,25 @@
             font-size: 18px;
         }
 
+        .product-image-dynamic {
+            height: 350px;
+            max-width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-color: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .no-listings {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #999;
+            padding: 40px 0;
+        }
+
         .other-products {
             display: flex;
             flex-direction: row;
@@ -804,8 +823,8 @@
     <div class="product-section">
         <div class="product-text">
             <div>
-                <h2>Video Game Consoles</h2>
-                <p>Recommended for you</p>
+                <h2>New Listings</h2>
+                <p>Fresh items just added by our sellers</p>
             </div>
             <div>
                 @auth
@@ -817,38 +836,19 @@
         </div>
 
         <div class="product-grid">
+            @forelse($listings ?? [] as $listing)
             <div class="product-card">
-                <div class="product-backgroundOne">
+                <div class="product-image-dynamic" @if($listing->image) style="background-image: url('{{ Storage::url($listing->image) }}');" @endif>
+                    @unless($listing->image) 📦 @endunless
                 </div>
                 <div class="product-backtext">
-                    <h3>Sony PlayStation 5 Pro 2TB Console *"NEW"*</h3>
-                    <p class="price">KES 700.00</p>
+                    <h3>{{ $listing->title }}</h3>
+                    <p class="price">KES {{ number_format($listing->price, 2) }}</p>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-backgroundTwo">
-                </div>
-                <div class="product-backtext">
-                    <h3>Xbox One – *DEF USED*</h3>
-                    <p class="price">KES 599.99</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-backgroundThree">
-                </div>
-                <div class="product-backtext">
-                    <h3>Sony PlayStation 4 500GB PS4 Jet Black Console Bundle 4...</h3>
-                    <p class="price">KES 155.00</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-backgroundFour">
-                </div>
-                <div class="product-backtext">
-                    <h3>SONY PLAYSTATION 2 PS2 FAT OR SLIM CONSOLE LOT BUND...</h3>
-                    <p class="price">KES 132.99</p>
-                </div>
-            </div>
+            @empty
+            <p class="no-listings">No listings yet — be the first to <a href="{{ Auth::check() ? '/listings/create' : route('auth.redirect') }}">list an item</a>.</p>
+            @endforelse
         </div>
     </div>
 
