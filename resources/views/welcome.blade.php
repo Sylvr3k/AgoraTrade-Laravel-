@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ asset('letter-a-block.png') }}" type="image/png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>AgoraTrade. Its Cheap. Its Maybe Broken. But Its Yours Now.</title>
     <style>
         * {
@@ -20,6 +22,9 @@
             align-items: center;
             background-color: #fff;
             padding: 15px 40px;
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
         }
 
         nav img {
@@ -32,7 +37,6 @@
         nav form {
             display: flex;
             flex-grow: 1;
-            max-width: 950px;
             align-items: center;
             margin-left: 55px;
         }
@@ -40,7 +44,8 @@
         nav input[type="text"] {
             margin-left: 20px;
             padding: 30px 30px 30px 20px;
-            width: 600px;
+            width: 100%;
+            flex-grow: 1;
             height: 45px;
             border: 1px solid #ccc;
             border-radius: 15px 0 0 0;
@@ -100,7 +105,9 @@
             text-decoration: none;
         }
 
-        .nav-profile:hover { background: #f8f9fa; }
+        .nav-profile:hover {
+            background: #f8f9fa;
+        }
 
         .nav-avatar {
             width: 28px;
@@ -117,10 +124,22 @@
             flex-shrink: 0;
         }
 
-        .nav-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .nav-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        .nav-username { font-size: 13px; font-weight: bold; color: #333; }
-        .nav-chevron { font-size: 11px; color: #999; }
+        .nav-username {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-chevron {
+            font-size: 11px;
+            color: #999;
+        }
 
         .nav-dropdown {
             display: none;
@@ -133,10 +152,12 @@
             padding: 6px;
             min-width: 180px;
             z-index: 200;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         }
 
-        .nav-profile:hover .nav-dropdown { display: block; }
+        .nav-profile:hover .nav-dropdown {
+            display: block;
+        }
 
         .nav-dropdown a {
             display: flex;
@@ -150,7 +171,9 @@
             transition: background 0.15s;
         }
 
-        .nav-dropdown a:hover { background: #f8f9fa; }
+        .nav-dropdown a:hover {
+            background: #f8f9fa;
+        }
 
         .nav-dropdown-divider {
             height: 1px;
@@ -158,15 +181,24 @@
             margin: 4px 0;
         }
 
-        .nav-dropdown form{
+        .nav-dropdown form {
             margin-left: 0px;
         }
 
-        .nav-dropdown .logout { color: #e74c3c; }
-        .nav-dropdown .logout:hover { background: #FCEBEB; }
+        .nav-dropdown .logout {
+            color: #e74c3c;
+        }
+
+        .nav-dropdown .logout:hover {
+            background: #FCEBEB;
+        }
 
         /* Logged out — auth buttons */
-        .nav-auth { display: flex; gap: 8px; align-items: center; }
+        .nav-auth {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
         .nav-auth a {
             padding: 8px 18px;
@@ -182,7 +214,9 @@
             color: #555;
         }
 
-        .nav-login:hover { background: #f8f9fa; }
+        .nav-login:hover {
+            background: #f8f9fa;
+        }
 
         .nav-signup {
             background: #ffe0a9;
@@ -190,7 +224,9 @@
             border: none;
         }
 
-        .nav-signup:hover { background: #f7d9a3; }
+        .nav-signup:hover {
+            background: #f7d9a3;
+        }
 
         .UP {
             display: flex;
@@ -205,7 +241,8 @@
             fill: #777;
             margin-right: 5px;
             transition: fill 0.3s ease;
-            position: relative; /* Add relative positioning here */
+            position: relative;
+            /* Add relative positioning here */
         }
 
         .UP svg:hover {
@@ -213,9 +250,11 @@
         }
 
         #login::after {
-            content: "Log In"; /* Tooltip text */
+            content: "Log In";
+            /* Tooltip text */
             position: absolute;
-            left: 100%; /* Position it to the right of the element */
+            left: 100%;
+            /* Position it to the right of the element */
             top: 50%;
             transform: translate(5px, -50%);
             background-color: #333;
@@ -235,9 +274,11 @@
         }
 
         #signup::after {
-            content: "Sign Up"; /* Tooltip text */
+            content: "Sign Up";
+            /* Tooltip text */
             position: absolute;
-            left: 100%; /* Position it to the right of the element */
+            left: 100%;
+            /* Position it to the right of the element */
             top: 50%;
             transform: translate(5px, -50%);
             background-color: #333;
@@ -256,41 +297,50 @@
             opacity: 1;
         }
 
-        .carousel{
-            width: 1263px;
+        .carousel {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
             border-top: 1px #ccc solid;
             border-bottom: 1px #ccc solid;
         }
 
         /* Carousel CSS Stuff*/
         .carousel-caption {
-            bottom: 40%; 
+            bottom: 40%;
         }
 
-        .carousel-inner{
+        .carousel-inner {
             min-height: 200px;
         }
 
         #carouselExampleControls {
-            max-height: 400px; /* Set your desired height */
-            overflow: hidden; /* Ensures no overflow from images */
+            max-height: 400px;
+            /* Set your desired height */
+            overflow: hidden;
+            /* Ensures no overflow from images */
         }
 
         #carouselExampleControls .carousel-inner img {
-            height: 100%; /* Ensures the images adjust to the carousel height */
-            object-fit: cover; /* Maintains a good aspect ratio for images */
+            height: 100%;
+            /* Ensures the images adjust to the carousel height */
+            object-fit: cover;
+            /* Maintains a good aspect ratio for images */
         }
 
         /* General carousel styles */
         .carousel-caption {
-            color: #fff; /* White text for contrast */
-            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7); /* Adds depth to text */
+            color: #fff;
+            /* White text for contrast */
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+            /* Adds depth to text */
             padding: 20px;
         }
 
         /* Cool caption at the top on all the slides*/
         .cool-top-caption-two {
-            top: 18%; /* Position near the top */
+            top: 18%;
+            /* Position near the top */
             transform: translateY(-50%);
             left: 50%;
             transform: translateX(-50%);
@@ -298,7 +348,8 @@
         }
 
         .cool-top-caption-three {
-            top: 16%; /* Position near the top */
+            top: 16%;
+            /* Position near the top */
             transform: translateY(-50%);
             left: 50%;
             transform: translateX(-50%);
@@ -307,7 +358,8 @@
         }
 
         .cool-top-caption {
-            top: 15%; /* Position near the top */
+            top: 15%;
+            /* Position near the top */
             transform: translateY(-50%);
             left: 50%;
             transform: translateX(-50%);
@@ -324,57 +376,67 @@
             font-size: 20px;
         }
 
-        .Track{
-           background-image: url("{{ asset('coke.jpg') }}");
-           background-size: cover;
-           display: flex;
-           flex-direction: row;
-           justify-content: space-between;
-           margin: 20px; 
-           padding: 28px;
-           width: 1220px;
-           height: 140px;
-           border-radius: 20px 0 20px 0;
-           border: 1px #ccc solid;
+        .Track {
+            background-image: url("{{ asset('coke.jpg') }}");
+            background-size: cover;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px auto;
+            padding: 28px;
+            max-width: 1260px;
+            width: calc(100% - 40px);
+            height: 140px;
+            border-radius: 20px 0 20px 0;
+            border: 1px #ccc solid;
         }
 
-        .Track a{
-           padding: 15px 35px;
-           background-color: #fff;
-           text-decoration: none;
-           color: #333;
-           cursor: pointer;
-           font-size: 15px;
-           font-weight: bold;
-           margin-top: -0.5px;
-           margin-left: 5px;
-           height: 60px;
-           width: 180px;
-           border-radius: 15px 0 15px 0;
+        .Track a {
+            padding: 15px 35px;
+            background-color: #fff;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: -0.5px;
+            margin-left: 5px;
+            height: 60px;
+            width: 180px;
+            border-radius: 15px 0 15px 0;
         }
 
-        .Text{
-           color: #fff;
-           margin: 10px;
+        .Text {
+            color: #fff;
+            margin: 10px;
         }
 
-        .Text h3{
-           font-weight: bold;
-        }
-        
-        .Btn{
-           margin: 28px;
+        .Text h3 {
+            font-weight: bold;
         }
 
-        footer { background: #fff; border-top: 1px solid #eee; text-align: center; color: #999; font-size: 12px; padding: 20px; margin-top: 40px; }
-
-        #footerpara{
-        margin: 0;
-        padding: 10px;
+        .Btn {
+            margin: 28px;
         }
-        
+
+        footer {
+            background: #fff;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        #footerpara {
+            margin: 0;
+            padding: 10px;
+        }
+
         .product-section {
-            width: 1200px;
+            max-width: 1260px;
+            width: 100%;
             margin: 0 auto;
             padding: 20px;
         }
@@ -388,14 +450,14 @@
             color: #555;
         }
 
-        .product-text{
+        .product-text {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             margin-top: 20px;
         }
 
-        .product-text a{
+        .product-text a {
             padding: 15px 35px;
             background-color: #333;
             text-decoration: none;
@@ -418,32 +480,32 @@
             margin-bottom: 40px;
         }
 
-        .product-backgroundOne{
+        .product-backgroundOne {
             background-image: url("{{ asset('Whitey.jpg') }}");
             background-size: cover;
             height: 350px;
-            max-width: 100%; 
+            max-width: 100%;
         }
 
-        .product-backgroundTwo{
+        .product-backgroundTwo {
             background-image: url("{{ asset('XBox One.jpg') }}");
             background-size: cover;
             height: 350px;
-            max-width: 100%; 
+            max-width: 100%;
         }
 
-        .product-backgroundThree{
+        .product-backgroundThree {
             background-image: url("{{ asset('Blacky.jpg') }}");
             background-size: cover;
             height: 350px;
-            max-width: 100%; 
+            max-width: 100%;
         }
 
-        .product-backgroundFour{
+        .product-backgroundFour {
             background-image: url("{{ asset('PS2 NOT.jpg') }}");
             background-size: cover;
             height: 350px;
-            max-width: 100%; 
+            max-width: 100%;
         }
 
         .product-card {
@@ -474,25 +536,65 @@
             font-size: 18px;
         }
 
-        .other-products{
+        .other-products {
             display: flex;
             flex-direction: row;
             background-color: #000;
             color: #fff;
-            width: 1263px;
-            margin-bottom: 20px;
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto 20px auto;
             justify-content: space-between;
         }
 
-        .other-text{
+        @media (max-width: 900px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            nav form {
+                margin-left: 0;
+                margin-top: 12px;
+                flex-basis: 100%;
+            }
+
+            .UP {
+                padding-left: 0;
+            }
+
+            .Track {
+                flex-direction: column;
+                height: auto;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .other-products {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .other-products img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 320px;
+            }
+
+            .Pic-ImgTwo {
+                margin: 20px auto 0 auto;
+            }
+        }
+
+        .other-text {
             margin: 60px 40px 40px 40px;
         }
 
-        .other-text p{
+        .other-text p {
             margin-bottom: 60px;
         }
 
-        .other-products a{
+        .other-products a {
             padding: 15px 35px;
             background-color: #fff;
             text-decoration: none;
@@ -506,21 +608,21 @@
             border-radius: 15px 0 15px 0;
         }
 
-        .Pic-ImgTwo{
+        .Pic-ImgTwo {
             margin-top: 60px;
             margin-left: 100px;
         }
 
-        .UP img{
+        .UP img {
             height: 50px;
             width: 50px;
         }
 
-        .UP span{
+        .UP span {
             padding-left: 20px;
         }
 
-        .UP a{
+        .UP a {
             text-decoration: none;
             color: #555;
         }
@@ -574,106 +676,121 @@
             opacity: 1;
             transform: translateX(2px);
         }
-        
     </style>
 </head>
+
 <body>
     <nav>
         <img src="{{ asset('letter-a-block.png') }}" alt="Logo">
         <form class="nav-search" action="{{ url('/store') }}" method="GET">
-        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search listings...">
-        <select name="category">
-            <option value="">All</option>
-            <option value="Antiques"                      {{ request('category') === 'Antiques' ? 'selected' : '' }}>Antiques</option>
-            <option value="Art"                           {{ request('category') === 'Art' ? 'selected' : '' }}>Art</option>
-            <option value="Books"                         {{ request('category') === 'Books' ? 'selected' : '' }}>Books</option>
-            <option value="CellPhones & Accessories"      {{ request('category') === 'CellPhones & Accessories' ? 'selected' : '' }}>Cell Phones</option>
-            <option value="Clothing"                      {{ request('category') === 'Clothing' ? 'selected' : '' }}>Clothing</option>
-            <option value="Computers/Tablets & Networking"{{ request('category') === 'Computers/Tablets & Networking' ? 'selected' : '' }}>Computers</option>
-            <option value="Health & Beauty"               {{ request('category') === 'Health & Beauty' ? 'selected' : '' }}>Health & Beauty</option>
-            <option value="Jewelry & Watches"             {{ request('category') === 'Jewelry & Watches' ? 'selected' : '' }}>Jewelry</option>
-            <option value="Music"                         {{ request('category') === 'Music' ? 'selected' : '' }}>Music</option>
-            <option value="Pottery & Glass"               {{ request('category') === 'Pottery & Glass' ? 'selected' : '' }}>Pottery & Glass</option>
-            <option value="Sporting Goods"                {{ request('category') === 'Sporting Goods' ? 'selected' : '' }}>Sporting Goods</option>
-            <option value="Video Games & Consoles"        {{ request('category') === 'Video Games & Consoles' ? 'selected' : '' }}>Video Games</option>
-            <option value="Everything Else"               {{ request('category') === 'Everything Else' ? 'selected' : '' }}>Everything Else</option>
-        </select>
-        <button type="submit">Search</button>
-    </form>
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Search listings...">
+            <select name="category">
+                <option value="">All</option>
+                <option value="Antiques" {{ request('category') === 'Antiques' ? 'selected' : '' }}>Antiques</option>
+                <option value="Art" {{ request('category') === 'Art' ? 'selected' : '' }}>Art</option>
+                <option value="Books" {{ request('category') === 'Books' ? 'selected' : '' }}>Books</option>
+                <option value="CellPhones & Accessories" {{ request('category') === 'CellPhones & Accessories' ? 'selected' : '' }}>Cell Phones</option>
+                <option value="Clothing" {{ request('category') === 'Clothing' ? 'selected' : '' }}>Clothing</option>
+                <option value="Computers/Tablets & Networking" {{ request('category') === 'Computers/Tablets & Networking' ? 'selected' : '' }}>Computers</option>
+                <option value="Health & Beauty" {{ request('category') === 'Health & Beauty' ? 'selected' : '' }}>Health &
+                    Beauty</option>
+                <option value="Jewelry & Watches" {{ request('category') === 'Jewelry & Watches' ? 'selected' : '' }}>
+                    Jewelry</option>
+                <option value="Music" {{ request('category') === 'Music' ? 'selected' : '' }}>Music</option>
+                <option value="Pottery & Glass" {{ request('category') === 'Pottery & Glass' ? 'selected' : '' }}>Pottery
+                    & Glass</option>
+                <option value="Sporting Goods" {{ request('category') === 'Sporting Goods' ? 'selected' : '' }}>Sporting
+                    Goods</option>
+                <option value="Video Games & Consoles" {{ request('category') === 'Video Games & Consoles' ? 'selected' : '' }}>Video Games</option>
+                <option value="Everything Else" {{ request('category') === 'Everything Else' ? 'selected' : '' }}>
+                    Everything Else</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
         <div class="UP">
-        <div class="nav-right">
-        @if(Auth::check())
-            <div class="nav-profile">
-                <div class="nav-avatar">
-                    @if(Auth::user()->profile_picture)
-                        <img src="{{ Storage::url(Auth::user()->profile_picture) }}" alt="avatar">
-                    @else
-                        {{ strtoupper(substr(Auth::user()->username, 0, 1)) }}
-                    @endif
-                </div>
-                <span class="nav-username">{{ Auth::user()->username }}</span>
-                <span class="nav-chevron">▾</span>
-                <div class="nav-dropdown">
-                    <a href="{{ url('/profile') }}">👤 My Profile</a>
-                    <a href="{{ url('/dashboard') }}">📊 Dashboard</a>
-                    <a href="{{ url('/listings') }}">🏷 My Listings</a>
-                    <a href="{{ url('/purchases') }}">🛒 Purchases</a>
-                    <div class="nav-dropdown-divider"></div>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="logout" style="width:100%; background:none; border:none; padding:0; cursor:pointer;">
-                            <a href="#" class="logout" onclick="this.closest('form').submit(); return false;">🚪 Log Out</a>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            @else 
+            <div class="nav-right">
+                @if(Auth::check())
+                    <div class="nav-profile">
+                        <div class="nav-avatar">
+                            @if(Auth::user()->profile_picture)
+                                <img src="{{ Storage::url(Auth::user()->profile_picture) }}" alt="avatar">
+                            @else
+                                {{ strtoupper(substr(Auth::user()->username, 0, 1)) }}
+                            @endif
+                        </div>
+                        <span class="nav-username">{{ Auth::user()->username }}</span>
+                        <span class="nav-chevron">▾</span>
+                        <div class="nav-dropdown">
+                            <a href="{{ url('/profile') }}">👤 My Profile</a>
+                            <a href="{{ url('/dashboard') }}">📊 Dashboard</a>
+                            <a href="{{ url('/listings') }}">🏷 My Listings</a>
+                            <a href="{{ url('/purchases') }}">🛒 Purchases</a>
+                            <div class="nav-dropdown-divider"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="logout"
+                                    style="width:100%; background:none; border:none; padding:0; cursor:pointer;">
+                                    <a href="#" class="logout" onclick="this.closest('form').submit(); return false;">🚪 Log
+                                        Out</a>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                @else
 
-            <div class="nav-auth">
-                <a href="{{ url('/login') }}" class="nav-login">Log In</a>
-                <a href="{{ url('/signup') }}" class="nav-signup">Sign Up</a>
+                    <div class="nav-auth">
+                        <a href="{{ url('/login') }}" class="nav-login">Log In</a>
+                        <a href="{{ url('/signup') }}" class="nav-signup">Sign Up</a>
+                    </div>
+                @endif
             </div>
-            @endif
-        </div>
     </nav>
 
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <a href="{{ Auth::check() ? '/store' : route('auth.redirect') }}"><div class="carousel-item active">
-                <img class="d-block w-100" src="{{ asset('PC Accessories.jpg') }}" alt="First slide">
-                <div class="carousel-caption cool-top-caption">
-                    <h3>Tech Savvy</h3>
-                    <p>Explore our premium PC accessories for every need.</p>
+            <a href="{{ Auth::check() ? '/store' : route('auth.redirect') }}">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ asset('PC Accessories.jpg') }}" alt="First slide">
+                    <div class="carousel-caption cool-top-caption">
+                        <h3>Tech Savvy</h3>
+                        <p>Explore our premium PC accessories for every need.</p>
+                    </div>
                 </div>
-            </div></a>
-            <a href="{{ Auth::check() ? '/store' : route('auth.redirect') }}"><div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('Jeans Mono.webp') }}" alt="Second slide">
-                <div class="carousel-caption cool-top-caption-two">
-                    <h3>Classic Jeans</h3>
-                    <p>Comfort meets style—shop the look now, and More.</p>
+            </a>
+            <a href="{{ Auth::check() ? '/store' : route('auth.redirect') }}">
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('Jeans Mono.webp') }}" alt="Second slide">
+                    <div class="carousel-caption cool-top-caption-two">
+                        <h3>Classic Jeans</h3>
+                        <p>Comfort meets style—shop the look now, and More.</p>
+                    </div>
                 </div>
-            </div></a>
-            <a href="{{ Auth::check() ? '/store' : route('auth.redirect') }}"><div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('Watch.webp') }}" alt="Third slide">
-                <div class="carousel-caption cool-top-caption-three">
-                    <h3>Timeless Elegance</h3>
-                    <p>Accessorize with luxury and precision.</p>
+            </a>
+            <a href="{{ Auth::check() ? '/store' : route('auth.redirect') }}">
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('Watch.webp') }}" alt="Third slide">
+                    <div class="carousel-caption cool-top-caption-three">
+                        <h3>Timeless Elegance</h3>
+                        <p>Accessorize with luxury and precision.</p>
+                    </div>
                 </div>
-            </div></a>
+            </a>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
     <div class="Track">
         <div class="Text">
-             <h3>Check Out What's In Stock Before it's too late</h3>
-             <p>Click the button on the right to explore more.</p>
+            <h3>Check Out What's In Stock Before it's too late</h3>
+            <p>Click the button on the right to explore more.</p>
         </div>
         <div class="Btn">
             @auth
@@ -689,31 +806,31 @@
             <div>
                 <h2>Video Game Consoles</h2>
                 <p>Recommended for you</p>
-            </div>   
+            </div>
             <div>
-            @auth
-                <a href="/store">See More</a>
-            @else
-                <a href="{{ route('auth.redirect') }}">See More</a>
-            @endauth
-            </div>  
+                @auth
+                    <a href="/store">See More</a>
+                @else
+                    <a href="{{ route('auth.redirect') }}">See More</a>
+                @endauth
+            </div>
         </div>
-        
+
         <div class="product-grid">
             <div class="product-card">
                 <div class="product-backgroundOne">
                 </div>
                 <div class="product-backtext">
                     <h3>Sony PlayStation 5 Pro 2TB Console *"NEW"*</h3>
-                    <p class="price">$700.00</p>
+                    <p class="price">KES 700.00</p>
                 </div>
             </div>
             <div class="product-card">
-               <div class="product-backgroundTwo">
-               </div>
-               <div class="product-backtext">
+                <div class="product-backgroundTwo">
+                </div>
+                <div class="product-backtext">
                     <h3>Xbox One – *DEF USED*</h3>
-                    <p class="price">$599.99</p>
+                    <p class="price">KES 599.99</p>
                 </div>
             </div>
             <div class="product-card">
@@ -721,15 +838,15 @@
                 </div>
                 <div class="product-backtext">
                     <h3>Sony PlayStation 4 500GB PS4 Jet Black Console Bundle 4...</h3>
-                    <p class="price">$155.00</p>
-                </div>    
+                    <p class="price">KES 155.00</p>
+                </div>
             </div>
             <div class="product-card">
                 <div class="product-backgroundFour">
                 </div>
                 <div class="product-backtext">
                     <h3>SONY PLAYSTATION 2 PS2 FAT OR SLIM CONSOLE LOT BUND...</h3>
-                    <p class="price">$132.99</p>
+                    <p class="price">KES 132.99</p>
                 </div>
             </div>
         </div>
@@ -737,64 +854,66 @@
 
     <div class="other-products">
         <div class="other-text">
-                <h2>Sport Equipment</h2>
-                <p>Gear up with sporting goods and elevate the fun! Click here to check out what's in stock.</p>
-                @auth
-                    <a href="/store">Shop</a>
-                @else
-                    <a href="{{ route('auth.redirect') }}">Shop</a>
-                @endauth 
+            <h2>Sport Equipment</h2>
+            <p>Gear up with sporting goods and elevate the fun! Click here to check out what's in stock.</p>
+            @auth
+                <a href="/store">Shop</a>
+            @else
+                <a href="{{ route('auth.redirect') }}">Shop</a>
+            @endauth
         </div>
         <div class="Pic-Img">
-            <img src="{{ asset('Equip.jpg') }}" width="500px" height="400px"/>
+            <img src="{{ asset('Equip.jpg') }}" width="500px" height="400px" />
         </div>
     </div>
 
     <div class="other-products">
         <div class="Pic-ImgTwo">
-            <img src="{{ asset('VaseBlack.png') }}" width="320px" height="320px"/>
+            <img src="{{ asset('VaseBlack.png') }}" width="320px" height="320px" />
         </div>
         <div class="other-text">
-                <h2>Pottery & Glassware</h2>
-                <p>Beautify your home with pottery and glassware! Click to explore our collection.</p>
-                @auth
-                    <a href="/store">Shop</a>
-                @else
-                    <a href="{{ route('auth.redirect') }}">Shop</a>
-                @endauth
+            <h2>Pottery & Glassware</h2>
+            <p>Beautify your home with pottery and glassware! Click to explore our collection.</p>
+            @auth
+                <a href="/store">Shop</a>
+            @else
+                <a href="{{ route('auth.redirect') }}">Shop</a>
+            @endauth
         </div>
     </div>
 
     <footer>
-    <p id="footerpara">© {{ now()->format('Y') }} AgoraTrade Limited. All Rights Reserved.</p>
+        <p id="footerpara">© {{ now()->format('Y') }} AgoraTrade Limited. All Rights Reserved.</p>
     </footer>
-    
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-            
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+
         </script>
 
-        @if(!Auth::check())
+    @if(!Auth::check())
         <script>
-        document.getElementById('searchForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const search = this.elements.search.value;
-            const category = this.elements.category.value;
-            
-            // Store in session storage
-            sessionStorage.setItem('pendingSearch', JSON.stringify({
-                search: search,
-                category: category
-            }));
-            
-            // Redirect to login with intended URL
-            window.location.href = "{{ route('login') }}?redirect={{ urlencode('/store') }}";
-        });
+            document.getElementById('searchForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const search = this.elements.search.value;
+                const category = this.elements.category.value;
+
+                // Store in session storage
+                sessionStorage.setItem('pendingSearch', JSON.stringify({
+                    search: search,
+                    category: category
+                }));
+
+                // Redirect to login with intended URL
+                window.location.href = "{{ route('login') }}?redirect={{ urlencode('/store') }}";
+            });
         </script>
-        @endif
+    @endif
 
 </body>
+
 </html>
